@@ -44,7 +44,7 @@ const displayDex = () => {
 
                 pokemonNum.addEventListener("keydown", (e) => {
                     if (e.key === "Enter" && !(e.target.readOnly)) {
-                        fetch(`./api/id/${pokemon.id}/set?num=${e.target.value}`);
+                        fetch(`./api/id/${pokemon.id}/set?num=${e.target.value}`, {method: "POST"});
                         e.target.classList.remove("editmode")
                         e.target.readOnly = true;
                     }
@@ -65,7 +65,7 @@ const displayDex = () => {
 
                 pokemonName.addEventListener("keydown", (e) => {
                     if (e.key === "Enter" && !(e.target.readOnly)) {
-                        fetch(`./api/id/${pokemon.id}/set?name=${e.target.value}`);
+                        fetch(`./api/id/${pokemon.id}/set?name=${e.target.value}`, {method: "POST"});
                         e.target.classList.remove("editmode")
                         e.target.readOnly = true;
                     }
@@ -119,7 +119,7 @@ const displayDex = () => {
 
                 pokemonHeight.addEventListener("keydown", (e) => {
                     if (e.key === "Enter" && !(e.target.readOnly)) {
-                        fetch(`./api/id/${pokemon.id}/set?height=${e.target.value}`);
+                        fetch(`./api/id/${pokemon.id}/set?height=${e.target.value}`, {method: "POST"});
                         e.target.classList.remove("editmode")
                         e.target.readOnly = true;
                     }
