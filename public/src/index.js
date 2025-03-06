@@ -100,7 +100,7 @@ const displayDex = () => {
 
                 pokemonWeight.addEventListener("keydown", (e) => {
                     if (e.key === "Enter" && !(e.target.readOnly)) {
-                        fetch(`./api/id/${pokemon.id}/set?weight=${e.target.value}`);
+                        fetch(`./api/id/${pokemon.id}/set?weight=${e.target.value}`, {method: "POST"});
                         e.target.classList.remove("editmode")
                         e.target.readOnly = true;
                     }

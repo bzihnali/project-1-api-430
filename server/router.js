@@ -7,7 +7,7 @@ const router = (app) => {
     app.get('/', endpoints.index);
     app.get('/dex', api.getFilteredDex);
     app.get('/api/id/:id/get', api.getID);
-    app.get('/api/id/:id/set', api.setID);
+    app.post('/api/id/:id/set', api.setID);
     app.get('/*', endpoints.notFound);
 
 };
