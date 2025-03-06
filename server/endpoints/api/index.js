@@ -1,4 +1,3 @@
-const html = require("html");
 let pokedex = require("../../../data/pokedex.json"); // not const because edits
 
 // gets a specific ID from the pokedex

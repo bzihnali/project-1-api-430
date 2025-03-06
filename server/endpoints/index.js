@@ -1,5 +1,3 @@
-const html = require("html");
-
 const hostIndex = (req, res) => {
     res.sendFile('index.html', { root: "./client/" })
 };
