@@ -4,9 +4,11 @@ const createElementWithClassName = (elType, className) => {
     return el;
 }
 
+// This function displays the pokedex (with filters if the filters are filled out)
 const displayDex = () => {
     dataContainer.innerHTML = "";
     let urlToFetch = "./dex";
+
     if (typeFilter.value.length > 0) {
         console.log(typeFilter.value)
         urlToFetch += `?types=${typeFilter.value}`
@@ -15,6 +17,8 @@ const displayDex = () => {
     fetch(urlToFetch)
         .then(res => res.json())
         .then(pokedex => {
+            // This builds a whole bunch of pokemon divs which are stylized
+            // The text fields are mostly inputs to allow for easy editing
             for (const pokemon of pokedex) {
                 let pokemonDiv = createElementWithClassName("div", "pokemon");
                 let pokemonBody = createElementWithClassName("div", "pokebody");
@@ -137,6 +141,7 @@ let dataButton = document.getElementById("request-data");
 let typeFilter = document.getElementById("type-filter");
 let dataContainer = document.getElementById("data-container");
 
+// will display the pokedex if the button is clicked or enter is pressed in the filter area
 dataButton.addEventListener("click", displayDex)
 typeFilter.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {

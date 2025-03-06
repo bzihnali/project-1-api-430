@@ -4,10 +4,10 @@ const bp = require('body-parser');
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 const app = express()
 
-// Creates a router where all requests are routed to
+// creates a router where all requests are routed to
 const router = require('./router.js');
 
-// Adds middleware that the Express app can use
+// adds middleware that the Express app can use (this was in one of the repos for the RIT Rich Media GitHub)
 app.use(bp.urlencoded({ extended: true }));
 app.use(bp.json());
 app.use(express.static('public'));

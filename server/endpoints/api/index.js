@@ -1,10 +1,7 @@
 const html = require("html");
 let pokedex = require("../../../data/pokedex.json"); // not const because edits
 
-const getPokedex = (req, res) => {
-    res.json(pokedex);
-}
-
+// gets a specific ID from the pokedex
 const getID = (req, res) => {
     let dexEntry = pokedex.filter((entry) => (entry.id == req.params.id))
     if (dexEntry.length == 0) {
@@ -15,6 +12,7 @@ const getID = (req, res) => {
     res.json(dexEntry)
 }
 
+// sets edited values of a pokedex entry
 const setID = (req, res) => {
     let dexEntryIndex = pokedex.findIndex((entry) => (entry.id == req.params.id))
     let modifiableTraits = ["name", "num", "height", "weight"]
@@ -42,6 +40,7 @@ const setID = (req, res) => {
     res.json(pokedex[dexEntryIndex])
 }
 
+// gets the pokedex but filters it beforehand (if there are no filters passed, itll return the whole thing)
 const getFilteredDex = (req, res) => {
     if (Object.keys(req.query).length == 0) {
         res.json(pokedex)
@@ -72,7 +71,6 @@ const getFilteredDex = (req, res) => {
 };
 
 module.exports = {
-    getPokedex,
     getID,
     setID,
     getFilteredDex,
